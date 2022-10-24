@@ -3,23 +3,6 @@ import { FaBars,FaTimes, FaShoppingCart } from 'react-icons/fa';
 
 const NavBar = () => {
     const [nav, setNav] = useState(false);
-    const links = [
-        {
-            id: 1,
-            name: "Garments",
-            link: "garments"
-        },
-        {
-            id: 2,
-            name: "Cart",
-            link: "cart"
-        },
-        {
-            id: 3,
-            name: "Checkout",
-            link: "checkout"
-        }
-    ]
   return (
     <div>
         <nav className="bg-gray-800">
@@ -41,16 +24,9 @@ const NavBar = () => {
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <div className="flex rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <FaShoppingCart size={20}/>
-          <span class="px-1.5 py-1 inline-block leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded full">1</span>
-        </div>
-        <div className="relative ml-3">
-          <div>
-            <button type="button" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span className="sr-only">Open user menu</span>
-              <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-            </button>
-          </div>
+          <FaShoppingCart size={25} className="mr-2" />
+          <span className="absolute right-3 md:right-1 top-5 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">5
+          </span>
         </div>
       </div>
     </div>
