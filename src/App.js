@@ -4,6 +4,7 @@ import { commerce } from "./lib/commerce";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 import NavBar from "./components/NavBar";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -53,7 +54,9 @@ function App() {
           handleRemoveFromCart={handleRemoveFromCart}
           handleEmptyCart={handleEmptyCart}
        />} />
+        <Route path="/checkout" element={<Checkout cart = {cart} />} />
       </Routes>
+
       
     </div>
   );
