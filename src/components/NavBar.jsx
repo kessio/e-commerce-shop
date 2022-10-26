@@ -18,7 +18,7 @@ const NavBar = ({cart}) => {
           <div className="flex space-x-4">
             <Link to={"/"}><span className="text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Shop</span></Link>
 
-            <Link to={"/checkout"}><span className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Checkout</span></Link>
+            <Link to={"/cart"}><span className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Cart</span></Link>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ const NavBar = ({cart}) => {
 
       <Link to={"/"}><span className="text-white hover:text-white block px-3 py-2 rounded-md text-base font-medium">Shop</span></Link>
 
-      <Link to={"/checkout"}><span className="text-white hover:text-white block px-3 py-2 rounded-md text-base font-medium">Checkout</span></Link>
+      <Link to={"/cart"}><span className="text-white hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cart</span></Link>
 
     </div>
   </div>

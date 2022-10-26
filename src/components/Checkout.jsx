@@ -1,10 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import { commerce } from '../lib/commerce'
+import Cart from './Cart'
 import CheckoutForm from './CheckoutForm'
+import CheckoutMultistep from './CheckoutMultistep'
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, onCaptureCheckout, error}) => {
     
     const [checkoutToken, setCheckoutToken] = useState(null)
+    const [shippingData,setShippingData] = useState({})
+
+
+
     useEffect(() => {
         const generateToken = async () => {
             try {
@@ -19,11 +25,12 @@ const Checkout = ({ cart }) => {
         generateToken()
 
     },[cart])
+
   return (
     <div>
         {
-            checkoutToken &&
-        <CheckoutForm checkoutToken={checkoutToken} />
+   
+   <CheckoutMultistep checkoutToken={checkoutToken} onCaptureCheckout={onCaptureCheckout}/>
 }
 
     </div>
