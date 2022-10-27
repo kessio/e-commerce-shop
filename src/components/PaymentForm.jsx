@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Elements, CardElement, ElementsConsumer, useStripe, useElements } from '@stripe/react-stripe-js'
+import React from 'react'
+import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const PaymentForm = ({checkoutToken, userData, onCaptureCheckout, setPageNo={setPageNo}}) => {
+const PaymentForm = ({checkoutToken, userData, onCaptureCheckout,setPageNo}) => {
 
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault()

@@ -39,7 +39,7 @@ const CartItem = ({id, name, image, price, totalPrice, quantity, onUpdateCartQty
              <span className="font-bold text-sm">{price}</span>
              </div>
              <div className="ml-3 mt-4">
-             <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-1xl">Remove</a>
+             <span onClick={() => onRemoveFromCart(id)} className="font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer">Remove</span>
              </div>
              </div>
            </div>
