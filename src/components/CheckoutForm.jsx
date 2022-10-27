@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useForm } from "react-hook-form";
 import  { commerce } from '../lib/commerce'
-import PaymentForm from './PaymentForm';
 
 const CheckoutForm = ({ checkoutToken, shippingFormData, setPageNo}) => {
     const [shippingCountries, setShippingCountries] = useState([])
@@ -11,6 +10,7 @@ const CheckoutForm = ({ checkoutToken, shippingFormData, setPageNo}) => {
     const [shippingOptions, setshippingOpttions] = useState([])
     const [shippingOption, setshippingOpttion] = useState('')
 
+
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({id: code, label: name}))
     const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({id: code, label: name}))
     const options = shippingOptions.map((shipOpt) => ({ id:shipOpt.id, label:`${shipOpt.description} - (${shipOpt.price.formatted_with_symbol})`}))
@@ -19,6 +19,7 @@ const CheckoutForm = ({ checkoutToken, shippingFormData, setPageNo}) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
         setShippingCountries(countries)
         setShippingCountry(Object.keys(countries)[0])
+        console.log(checkoutTokenId)
     }
 
     const fetchSubDivisions = async (countryCode) => {

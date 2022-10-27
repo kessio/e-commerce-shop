@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product'
 
-const Products = ({ products, addToCart }) => {
+const Products = ({ products, addToCart, isLoading }) => {
    
   return (
     <div>
@@ -22,6 +22,7 @@ const Products = ({ products, addToCart }) => {
                     </div>
                     <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
         {
+          
            products.map((prod) => (
             <Product 
             key={prod.id} 
@@ -30,6 +31,7 @@ const Products = ({ products, addToCart }) => {
             price={prod.price.formatted_with_symbol}
             image={prod.image.url}
             addToCart={addToCart}
+            isLoading={isLoading}
             
              />
 

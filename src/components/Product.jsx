@@ -1,6 +1,8 @@
 import React from 'react'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const Product = ({id, name, price, image, addToCart}) => {
+const Product = ({id, name, price, image, addToCart, isLoading}) => {
   return (
 
     <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto border-solid border-2 p-3 hover:scale-105 cursor-pointer">

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Elements, CardElement, ElementsConsumer, useStripe, useElements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
-import CompletePurchase from './CompletePurchase'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 

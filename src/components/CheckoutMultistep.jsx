@@ -27,7 +27,7 @@ const CheckoutMultistep = ({checkoutToken, onCaptureCheckout}) => {
     }
   }
 
-  const stepsNumber = ["Step 1", "Step 2", "Step 3"]
+  const stepsNumber = ["Step 1", "Step 2", "Complete"]
   return (
     <div>
          <div className="flex mt-20 min-h-screen">
@@ -38,7 +38,7 @@ const CheckoutMultistep = ({checkoutToken, onCaptureCheckout}) => {
             <div className="w-full">
               <div className="md:w-3/4 bg-gray-200 rounded-full">
                 <div
-                  className={`p-1 text-xs font-medium leading-none text-center text-blue-100 bg-blue-600 rounded-full ${ step === 0 ? "w-40" : step === 1 ? "w-60": "w-100"  } `}>
+                  className={`p-1 text-xs font-medium leading-none text-center text-blue-100 bg-red-500 rounded-full ${ step === 0 ? "w-40" : step === 1 ? "w-60": "w-100"  } `}>
                   {stepsNumber[step]}
                 </div>
               </div>
