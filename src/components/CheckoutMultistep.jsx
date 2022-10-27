@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import CheckoutForm from './CheckoutForm'
 import PaymentForm from './PaymentForm'
 import CompletePurchase from './CompletePurchase'
+import SkeletonCheckoutForm from './skeleton/SkeletonCheckoutForm'
 
-const CheckoutMultistep = ({checkoutToken, onCaptureCheckout}) => {
+const CheckoutMultistep = ({checkoutToken, onCaptureCheckout, isLoading}) => {
 
     const [step, setStep] = useState(0)
 
@@ -19,7 +20,7 @@ const CheckoutMultistep = ({checkoutToken, onCaptureCheckout}) => {
  }
   const PageDisplay = () => {
     if(step === 0){
-      return  checkoutToken && <CheckoutForm checkoutToken={checkoutToken}  shippingFormData={next} setPageNo={setPageNo} />
+      return isLoading? <SkeletonCheckoutForm/> : checkoutToken && <CheckoutForm checkoutToken={checkoutToken}  shippingFormData={next} setPageNo={setPageNo} />
     }else if(step ===1){
       return <PaymentForm checkoutToken={checkoutToken} onCaptureCheckout={onCaptureCheckout} userData={adressData} setPageNo={setPageNo}  />
     }else{

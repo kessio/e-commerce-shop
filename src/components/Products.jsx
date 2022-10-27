@@ -1,7 +1,9 @@
 import React from 'react'
+import SkeletonProducts from './skeleton/SkeletonProducts'
 import Product from './Product'
 
 const Products = ({ products, addToCart, isLoading }) => {
+  const loopSkeleton = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
    
   return (
     <div>
@@ -22,8 +24,13 @@ const Products = ({ products, addToCart, isLoading }) => {
                     </div>
                     <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
         {
-          
-           products.map((prod) => (
+
+            isLoading?
+            loopSkeleton.map((no,index) => (
+              <SkeletonProducts key={index}  />
+            )) 
+             :
+            products.map((prod) => (
             <Product 
             key={prod.id} 
             id={prod.id}
@@ -31,11 +38,14 @@ const Products = ({ products, addToCart, isLoading }) => {
             price={prod.price.formatted_with_symbol}
             image={prod.image.url}
             addToCart={addToCart}
-            isLoading={isLoading}
-            
              />
-
+            
+            
            ))
+           
+          
+           
+
         }
      </div>
     </div>

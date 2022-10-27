@@ -5,7 +5,7 @@ import Products from "./components/Products";
 import Cart from "./components/Cart";
 import NavBar from "./components/NavBar";
 import Checkout from "./components/Checkout";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+
 
 function App() {
   const [products, setProducts] = useState([])
@@ -22,6 +22,7 @@ function App() {
 
   const fetchCart = async() => {
     setCart(await commerce.cart.retrieve())
+    setLoading(false) 
   }
 
   const handleAddToCart = async (product_id, quantity) => {
@@ -64,7 +65,6 @@ function App() {
   return (
     <div className="App">
       <NavBar cart = {cart} />
-      <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <Routes>
       <Route path="/"  element={<Products products={products} addToCart={handleAddToCart} isLoading={isLoading} />} />
       <Route path="/cart" element={
@@ -73,6 +73,8 @@ function App() {
           handleUpdateCartQty={handleUpdateCartQty}
           handleRemoveFromCart={handleRemoveFromCart}
           handleEmptyCart={handleEmptyCart}
+          isLoading={isLoading} 
+
        />} />
         <Route path="/checkout" element={
         <Checkout 
@@ -84,9 +86,6 @@ function App() {
          />
         } />
       </Routes>
-      </SkeletonTheme>
-
-      
     </div>
   );
 }

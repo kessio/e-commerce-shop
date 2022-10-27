@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { commerce } from '../lib/commerce'
-import Cart from './Cart'
-import CheckoutForm from './CheckoutForm'
 import CheckoutMultistep from './CheckoutMultistep'
 
 const Checkout = ({ cart, order, onCaptureCheckout, error}) => {
     
     const [checkoutToken, setCheckoutToken] = useState(null)
+    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         const generateToken = async () => {
@@ -14,6 +13,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error}) => {
                 const token = await commerce.checkout.generateToken(cart.id, {type: 'cart'})
             
                 setCheckoutToken(token)
+                setLoading(false)
                 
             } catch (error) {
                 
@@ -27,7 +27,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error}) => {
     <div>
         {
    
-    <CheckoutMultistep checkoutToken={checkoutToken} onCaptureCheckout={onCaptureCheckout}/>
+    <CheckoutMultistep checkoutToken={checkoutToken} onCaptureCheckout={onCaptureCheckout} isLoading={isLoading}/>
 }
 
     </div>

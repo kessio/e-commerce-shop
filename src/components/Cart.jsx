@@ -2,10 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 import Review from './Review';
+import SkeletonCart from '../components/skeleton/SkeletonCart'
 
-const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}) => {
+const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart, isLoading }) => {
  const cartItems =  cart.line_items
  const subTotal = cart.subtotal
+ const loopSkeleton = [1,2,3]
   return (
     <div className="">
    <div className="container mx-auto mt-10">
@@ -22,7 +24,13 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
           <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
         </div>
         {
-            cartItems?.map((item) => (
+           isLoading?
+           loopSkeleton.map((no,index) => (
+             <SkeletonCart key={index}  />
+           ))
+           :
+
+          cartItems?.map((item) => (
           <CartItem 
           key={item.id}
           id={item.id}
@@ -34,6 +42,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
           onUpdateCartQty={handleUpdateCartQty}
           onRemoveFromCart={handleRemoveFromCart}
            />
+          
 
             ))      
 }

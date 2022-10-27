@@ -19,7 +19,6 @@ const CheckoutForm = ({ checkoutToken, shippingFormData, setPageNo}) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
         setShippingCountries(countries)
         setShippingCountry(Object.keys(countries)[0])
-        console.log(checkoutTokenId)
     }
 
     const fetchSubDivisions = async (countryCode) => {
