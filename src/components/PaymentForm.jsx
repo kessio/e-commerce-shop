@@ -59,8 +59,8 @@ const PaymentForm = ({checkoutToken, userData, onCaptureCheckout,setPageNo}) => 
                <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
                     <CardElement />
                     <br /> <br />
-                    <div className="">
-                    <button type="submit" className="px-8 py-3 text-white bg-blue-300 rounded focus:outline-none" disabled={!stripe || !elements}>
+                    <div className="">                   
+                    <button type="submit" className="px-8 py-3 text-white bg-red-600 rounded focus:outline-none">
                         Pay {checkoutToken.subtotal.formatted_with_symbol}
                     </button>
                     </div>
