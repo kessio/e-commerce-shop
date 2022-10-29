@@ -12,7 +12,7 @@ const Products = ({ products, addToCart, isLoading }) => {
         <div className="lg:flex lg:-mx-2">
         <div className="mt-6 lg:mt-0 lg:px-2 lg:w-4/5 ">
                     <div className="flex items-center justify-between text-sm tracking-widest uppercase ">
-                        <p className="text-gray-500 dark:text-gray-300">6 Items</p>
+                        <p className="text-gray-500 dark:text-gray-300">Store</p>
                         <div className="flex items-center">
                             <p className="text-gray-500 dark:text-gray-300">Sort</p>
                             <select className="font-medium text-gray-700 bg-transparent dark:text-gray-500 focus:outline-none">
